@@ -32,6 +32,12 @@
     },
     "layout": {
       "tags": []
+    },
+    "vtp": {
+      "tags": []
+    },
+    "vtp-e2e": {
+      "tags": []
     }
   }
 }
