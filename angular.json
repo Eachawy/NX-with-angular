@@ -2,7 +2,354 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "inspection": {
+      "root": "apps/inspection/",
+      "sourceRoot": "apps/inspection/src",
+      "projectType": "application",
+      "prefix": "SVIS",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/inspection",
+            "index": "apps/inspection/src/index.html",
+            "main": "apps/inspection/src/main.ts",
+            "polyfills": "apps/inspection/src/polyfills.ts",
+            "tsConfig": "apps/inspection/tsconfig.app.json",
+            "assets": [
+              "apps/inspection/src/favicon.ico",
+              "apps/inspection/src/assets"
+            ],
+            "styles": [
+              "apps/inspection/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/inspection/src/environments/environment.ts",
+                  "with": "apps/inspection/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "inspection:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "inspection:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "inspection:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/inspection/src/test.ts",
+            "polyfills": "apps/inspection/src/polyfills.ts",
+            "tsConfig": "apps/inspection/tsconfig.spec.json",
+            "karmaConfig": "apps/inspection/karma.conf.js",
+            "styles": [
+              "apps/inspection/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/inspection/src/favicon.ico",
+              "apps/inspection/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/inspection/tsconfig.app.json",
+              "apps/inspection/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "inspection-e2e": {
+      "root": "apps/inspection-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/inspection-e2e/protractor.conf.js",
+            "devServerTarget": "inspection:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "inspection:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/inspection-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "apilib": {
+      "root": "libs/apilib",
+      "sourceRoot": "libs/apilib/src",
+      "projectType": "library",
+      "prefix": "SVIS",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apilib/src/test.ts",
+            "tsConfig": "libs/apilib/tsconfig.spec.json",
+            "karmaConfig": "libs/apilib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/apilib/tsconfig.lib.json",
+              "libs/apilib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "uilib": {
+      "root": "libs/uilib",
+      "sourceRoot": "libs/uilib/src",
+      "projectType": "library",
+      "prefix": "SVIS",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/uilib/src/test.ts",
+            "tsConfig": "libs/uilib/tsconfig.spec.json",
+            "karmaConfig": "libs/uilib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/uilib/tsconfig.lib.json",
+              "libs/uilib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "apointment": {
+      "root": "apps/apointment/",
+      "sourceRoot": "apps/apointment/src",
+      "projectType": "application",
+      "prefix": "SVIS",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/apointment",
+            "index": "apps/apointment/src/index.html",
+            "main": "apps/apointment/src/main.ts",
+            "polyfills": "apps/apointment/src/polyfills.ts",
+            "tsConfig": "apps/apointment/tsconfig.app.json",
+            "assets": [
+              "apps/apointment/src/favicon.ico",
+              "apps/apointment/src/assets"
+            ],
+            "styles": [
+              "apps/apointment/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/apointment/src/environments/environment.ts",
+                  "with": "apps/apointment/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "apointment:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "apointment:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "apointment:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/apointment/src/test.ts",
+            "polyfills": "apps/apointment/src/polyfills.ts",
+            "tsConfig": "apps/apointment/tsconfig.spec.json",
+            "karmaConfig": "apps/apointment/karma.conf.js",
+            "styles": [
+              "apps/apointment/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/apointment/src/favicon.ico",
+              "apps/apointment/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/apointment/tsconfig.app.json",
+              "apps/apointment/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "apointment-e2e": {
+      "root": "apps/apointment-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/apointment-e2e/protractor.conf.js",
+            "devServerTarget": "apointment:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "apointment:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/apointment-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "layout": {
+      "root": "libs/layout",
+      "sourceRoot": "libs/layout/src",
+      "projectType": "library",
+      "prefix": "SVIS",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/layout/src/test.ts",
+            "tsConfig": "libs/layout/tsconfig.spec.json",
+            "karmaConfig": "libs/layout/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/tsconfig.lib.json",
+              "libs/layout/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -10,5 +357,6 @@
     },
     "defaultCollection": "@nrwl/schematics",
     "packageManager": "npm"
-  }
+  },
+  "defaultProject": "inspection"
 }

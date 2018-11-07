@@ -16,6 +16,15 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@SVIS/apilib": [
+        "libs/apilib/src/index.ts"
+      ],
+      "@SVIS/uilib": [
+        "libs/uilib/src/index.ts"
+      ],
+      "@SVIS/layout": [
+        "libs/layout/src/index.ts"
+      ]
     }
   },
   "exclude": [
