@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
-// import { uilibRoutes } from '@SVIS/uilib';
 
 @NgModule({
   declarations: [AppComponent],

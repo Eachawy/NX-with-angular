@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { apilib } from  '@SVIS/apilib';
 
 @Component({
   selector: 'SVIS-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'apointment';
+  constructor(private Apilib: apilib){
+    this.title = Apilib.hello();
+  }
 }
